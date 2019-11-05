@@ -7,7 +7,7 @@ var joueur0 = document.querySelector(".panel-joueur-0");
 var joueur1 = document.querySelector(".panel-joueur-1");
 var de = document.querySelector("img");
 
-const SCORE_MAX = 20;
+var SCORE_MAX = 100;
 
 
 var init = function()
@@ -100,4 +100,13 @@ function nouveau()
 btn_new.addEventListener("click",nouveau,false);
 
 
+document.writeln("<input type='text' id='sss'>");
+document.writeln("<input type='button' value='Score max' id='butt'>");
+var mod = document.getElementById("sss");
+function scoreee(){
+	SCORE_MAX=sss.value;
+	sss.value="";
+}
+
+document.getElementById("butt").addEventListener("click",scoreee,false);
 
