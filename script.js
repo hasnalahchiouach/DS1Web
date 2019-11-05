@@ -27,10 +27,11 @@ document.body.onload = init;
 var btn_lancer = document.querySelector(".btn-lancer");
 var images = ["de-1.png","de-2.png","de-3.png","de-4.png","de-5.png","de-6.png"];
 var tempScore = 0;
-
+var score=[0,0];
 function lance(){
-	
+
 	var joueur_actif = document.querySelector(".actif .score-joueur-courent");
+
 	var nbr_alt = Math.floor(Math.random()*6);
 	var alt = images[nbr_alt];
 
@@ -45,13 +46,36 @@ function lance(){
 
 
 	else {
-	tempScore = 0;
 	joueur1.classList.toggle('actif');
 	joueur0.classList.toggle('actif');
 	joueur_actif.innerHTML = 0;
 	de.style.visibility = "hidden";
+	tempScore = 0;
 	}
 }
 btn_lancer.addEventListener("click",lance,false);
 
 /////////////////////////////////
+var btn_passe = document.querySelector(".btn-passe");
+
+function joueurSuivant(){
+	var joueur_actif_courent = document.querySelector(".actif .score-joueur-courent");
+	var score_joueur_actif = document.querySelector(".actif .score-joueur");
+	joueur1.classList.toggle('actif');
+	joueur0.classList.toggle('actif');
+	de.style.visibility = "hidden";
+	if(joueur1.classList.contains("actif"))
+	{	
+		score[0] += tempScore;
+		score_0.innerHTML = score[0];
+		courent_0.innerHTML = 0;
+	} 
+	else {
+		score[1] += tempScore;
+		score_1.innerHTML = score[1];
+		courent_1.innerHTML = 0;
+	}
+	tempScore = 0;
+	
+}
+btn_passe.addEventListener("click",joueurSuivant,false);
