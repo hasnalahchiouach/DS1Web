@@ -7,7 +7,7 @@ var joueur0 = document.querySelector(".panel-joueur-0");
 var joueur1 = document.querySelector(".panel-joueur-1");
 var de = document.querySelector("img");
 
-const SCORE_MAX = 100;
+const SCORE_MAX = 20;
 
 
 var init = function()
@@ -79,6 +79,7 @@ if(score[0] < SCORE_MAX && score[1] < SCORE_MAX){
 	}
 	tempScore = 0;
 }
+
 }
 
 
@@ -87,7 +88,16 @@ if(score[0] < SCORE_MAX && score[1] < SCORE_MAX){
 
 btn_lancer.addEventListener("click",lance,false);
 btn_passe.addEventListener("click",joueurSuivant,false);
+ 
 
+var btn_new = document.querySelector(".btn-new");
+
+function nouveau()
+{
+	score=[0,0];
+	init();
+}
+btn_new.addEventListener("click",nouveau,false);
 
 
 
